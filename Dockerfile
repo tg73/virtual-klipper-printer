@@ -38,6 +38,7 @@ COPY config/simulavr.config /usr/src
 RUN git clone -b master https://git.savannah.nongnu.org/git/simulavr.git \
     # Build the firmware
     && cd klipper \
+    && pip install --upgrade setuptools \
     && cp /usr/src/simulavr.config .config \
     && make PYTHON=python3 \
     && cp out/klipper.elf /build/simulavr.elf \
